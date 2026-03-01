@@ -48,6 +48,7 @@
   text-decoration: none;
   color: inherit;
   cursor: default;
+  outline: none;
 }
 
 .header__title {
@@ -162,7 +163,7 @@ main {
   block-size: 38px;
 }
 
-/* ======== СТИЛИ КНОПОК ======== */
+/* ======== СТИЛИ КНОПОК - ИСПРАВЛЕНО ======== */
 
 /* Общие стили для всех кнопок */
 .button {
@@ -201,7 +202,7 @@ main {
   transform: translateX(0);
 }
 
-/* Стили для текста внутри кнопок */
+/* Стили для текста внутри кнопок - mix-blend-mode */
 .button__text {
   position: relative;
   display: block;
@@ -211,11 +212,7 @@ main {
   color: var(--main-color, #000);
   z-index: 1;
   padding: 10px 0;
-  transition: color 0.3s ease;
-}
-
-.button:hover .button__text {
-  color: var(--bg-color, #fff);
+  mix-blend-mode: difference;
 }
 
 /* Для кнопки с иконкой */
@@ -225,11 +222,7 @@ main {
   height: 21px;
   color: var(--main-color, #000);
   z-index: 1;
-  transition: color 0.3s ease;
-}
-
-.button:hover svg {
-  color: var(--bg-color, #fff);
+  mix-blend-mode: difference;
 }
 
 /* Фильтры для изображений */
@@ -286,7 +279,6 @@ main {
   border: var(--border, 2px solid #000);
   padding: 30px;
   background-color: var(--bg-color, #fff);
-  overflow: hidden;
 }
 
 .dialog[open] {
@@ -332,15 +324,6 @@ main {
   background-color: transparent;
 }
 
-/* Стили для кнопки ОК в модальном окне */
-.dialog__button .button__text {
-  color: var(--main-color, #000);
-}
-
-.dialog__button:hover .button__text {
-  color: var(--bg-color, #fff);
-}
-
 /* Медиазапрос для мобильных устройств */
 @media (width <= 375px) {
   .save-button {
@@ -352,4 +335,3 @@ main {
     height: 28px;
   }
 }
-
