@@ -15,8 +15,9 @@
   --content-width: clamp(375px, 260.56px + 30.52vw, 700px);
   
   /* Цвета */
-  --main-color: #000;
-  --bg-color: #fff;
+  --main-color: #000;        /* Черный для границ и псевдоэлемента */
+  --bg-color: #fff;          /* Белый для фона кнопки */
+  --button-text-color: #fff; /* НОВЫЙ: Белый текст на кнопке */
   --heart-fill-color: #ff0000;
   --contour-color: #000;
   

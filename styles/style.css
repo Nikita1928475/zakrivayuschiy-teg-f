@@ -168,8 +168,8 @@ main {
 /* Общие стили для всех кнопок */
 .button {
   position: relative;
-  background-color: var(--bg-color, #fff);
-  border: var(--border, 2px solid #000);
+  background-color: var(--bg-color, #fff);      /* Белый фон */
+  border: var(--border, 2px solid #000);        /* Черная рамка */
   cursor: pointer;
   overflow: hidden;
   padding: 0;
@@ -184,7 +184,7 @@ main {
   box-shadow: 2px 2px 0 var(--main-color, #000);
 }
 
-/* Псевдоэлемент для анимации при наведении */
+/* Псевдоэлемент для анимации при наведении - ЧЕРНЫЙ */
 .button::before {
   content: '';
   position: absolute;
@@ -192,7 +192,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--main-color, #000);
+  background-color: var(--main-color, #000);    /* Черный */
   transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
   z-index: 0;
@@ -202,55 +202,80 @@ main {
   transform: translateX(0);
 }
 
-/* Стили для текста внутри кнопок - mix-blend-mode */
+/* Стили для текста внутри кнопок - БЕЛЫЙ текст с mix-blend-mode */
 .button__text {
   position: relative;
   display: block;
   font-family: var(--accent-font, 'PressStart2P'), fantasy;
   font-size: var(--small-font-size, 14px);
   line-height: 90%;
-  color: var(--main-color, #000);
+  color: var(--button-text-color, #fff);        /* БЕЛЫЙ текст */
   z-index: 1;
   padding: 10px 0;
-  mix-blend-mode: difference;
+  mix-blend-mode: difference;                    /* Разностное смешивание */
 }
 
-/* Для кнопки с иконкой */
+/* Для кнопки с иконкой - БЕЛАЯ иконка */
 .save-button svg {
   position: relative;
   width: 21px;
   height: 21px;
-  color: var(--main-color, #000);
+  color: var(--button-text-color, #000);        /* БЕЛАЯ иконка */
   z-index: 1;
+  mix-blend-mode: difference;                    /* Разностное смешивание */
+}
+
+/* Для иконки в модальном окне */
+.dialog__icon {
+  flex-shrink: 0;
+  width: 39px;
+  height: 39px;
+  color: var(--button-text-color, #000);        /* БЕЛАЯ иконка */
   mix-blend-mode: difference;
 }
 
+
+
+/* Для текста в модальном окне (НЕ кнопка, поэтому без difference) */
+.dialog__text {
+  font-family: var(--accent-font, 'PressStart2P'), fantasy;
+  font-size: var(--small-font-size, 14px);
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--main-color, #000);                /* Черный текст (обычный) */
+}
 /* Фильтры для изображений */
-.seventh-image {
-  filter: blur(15px);
+
+
+.filter-blur {
+  filter: blur(5px);
 }
 
-.second-image {
-  filter: grayscale(0.8) contrast(0.8);
+.filter-grayscale {
+  filter: grayscale(0.8);
 }
 
-.third-image {
-  filter: saturate(4);
+.filter-contrast {
+  filter: contrast(1.5);
 }
 
-.fourth-image {
+.filter-saturate {
+  filter: saturate(3);
+}
+
+.filter-hue-rotate {
   filter: hue-rotate(30deg);
 }
 
-.fifth-image {
-  filter: invert(0.8);
+.filter-invert {
+  filter: invert(0.7);
 }
 
-.sixth-image {
-  filter: sepia(90%);
+.filter-sepia {
+  filter: sepia(0.8);
 }
 
-.eighth-image {
+.filter-drop-shadow {
   filter: hue-rotate(90deg) blur(2px) contrast(0.5) saturate(1.5);
 }
 
@@ -298,12 +323,7 @@ main {
   align-items: center;
 }
 
-.dialog__icon {
-  flex-shrink: 0;
-  width: 39px;
-  height: 39px;
-  color: var(--main-color, #000);
-}
+
 
 .dialog__text {
   font-family: var(--accent-font, 'PressStart2P'), fantasy;
@@ -330,8 +350,5 @@ main {
     flex-direction: column;
   }
   
-  .save-button svg {
-    width: 28px;
-    height: 28px;
-  }
+
 }
